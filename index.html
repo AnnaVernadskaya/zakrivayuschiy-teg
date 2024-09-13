@@ -57,6 +57,7 @@
     </header>
 
     <main class="container main">
+      <section class="cards-list">
       <ul class="cards">
         <li class="cards__list-item">
           <article class="card">
@@ -89,6 +90,7 @@
                   viewBox="0 0 39 36"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <g class="heart">
                     <path
@@ -118,7 +120,7 @@
                 </svg>
               </button>
               <button
-                class="button card__like-button button-shadow button-overlay card__icon-button"
+                class="button card__like-button button-main button-shadow button-overlay card__icon-button"
                 type="button"
               >
                 <span class="button__text" lang="en">Like</span>
@@ -127,17 +129,17 @@
           </article>
         </li>
       </ul>
+    </section>
+      <section class="save">
+        <button class="save__button button-main button button-shadow button-overlay" type="button">
+          <svg class="save__floppy" aria-hidden="true">
+            <use href="./svg/floppy.svg#floppy" />
+          </svg>
+
+          <span class="button__text">Сохранить на память</span>
+        </button>
+      </section>
     </main>
-
-    <footer class="footer">
-      <button class="footer__button-save button button-shadow button-overlay">
-        <svg class="footer__floppy">
-          <use href="./svg/floppy.svg#floppy" />
-        </svg>
-
-        <span class="button__text">Сохранить на память</span>
-      </button>
-    </footer>
 
     <script src="./scripts/set-theme.js"></script>
     <script src="./scripts/like.js"></script>
