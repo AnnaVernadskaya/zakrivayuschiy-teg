@@ -1,31 +1,76 @@
 .page.theme-dark {
-  --bg-image: url(../svg/pattern-dark.svg);
+  --bg-image: repeating-linear-gradient(
+      90deg,
+      #000,
+      #000 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #000,
+      #000 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #007f0c 0.01%, #004306 100%);
   --bg-color: #000;
   --accent-color: #00cc14;
   --font-weight-title: 785;
   --font-weight-text: 465;
   --heart-color-active: #f00;
   --heart-contour-color: #00cc14;
+  --shadow-color: #000;
 }
 
 .page.theme-light {
-  --bg-image: url(../svg/pattern-light.svg);
+  --bg-image: repeating-linear-gradient(
+      90deg,
+      #d3d3d3,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #d3d3d3,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   --bg-color: #fff;
   --accent-color: #000;
   --font-weight-title: 700;
   --font-weight-text: 400;
   --heart-color-active: #f00;
   --heart-contour-color: #000;
+  --shadow-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   .page.theme-auto {
-    --bg-image: url(../svg/pattern-dark.svg);
+    --bg-image: repeating-linear-gradient(
+        90deg,
+        #000,
+        #000 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        #000,
+        #000 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(to bottom, #007f0c 0.01%, #004306 100%);
     --bg-color: #000;
     --accent-color: #00cc14;
     --font-weight-title: 785;
     --font-weight-text: 465;
     --heart-color-active: #f00;
     --heart-contour-color: #00cc14;
+    --shadow-color: #000;
   }
 }

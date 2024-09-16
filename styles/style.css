@@ -5,9 +5,25 @@
   font-family: var(--main-font), Arial, Helvetica, sans-serif;
   font-variation-settings: "wght" var(--font-weight-title);
   background-color: var(--bg-color, #fff);
-  background-image: var(--bg-image);
-  background-repeat: repeat;
-  background-size: 4px 4px;
+  background-image: var(
+    --bg-image,
+    repeating-linear-gradient(
+      90deg,
+      #d3d3d3,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #d3d3d3,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%)
+  );
+  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -80,7 +96,6 @@
   border: none;
 }
 
-
 .theme-menu__button {
   position: relative;
   text-decoration: none;
@@ -133,6 +148,12 @@
   flex-direction: column;
 }
 
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 57px;
+}
+
 .cards__list-item {
   display: flex;
   flex-direction: column;
@@ -142,13 +163,18 @@
 }
 
 .card__title {
-  font-variation-settings: 'wght' var(--card-title-fw, 700);
+  font-variation-settings: "wght" var(--card-title-fw, 700);
   font-size: 18px;
   color: var(--accent-color, #000);
 }
 
+.image-container {
+  position: relative;
+  margin: 0;
+}
 .card__image {
   inline-size: 100%;
+  display: block;
   block-size: 696px;
   object-fit: cover;
   object-position: center;
@@ -156,12 +182,37 @@
   border-block-end: 2px solid var(--accent-color, #000);
 }
 
+.card__image-watermark {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  font-family: var(--accent-font), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  color: var(--accent-color, #000);
+
+  text-shadow: 1px 0 0 var(--shadow-color, #fff),
+    -1px 0 0 var(--shadow-color, #fff), 0 1px 0 var(--shadow-color, #fff),
+    0 -1px 0 var(--shadow-color, #fff);
+}
+
+@supports (text-stroke: 1px var(--shadow-color)) or
+  (-webkit-text-stroke: 1px var(--shadow-color)) {
+  .card__image-watermark {
+    -webkit-text-stroke: 1px var(--shadow-color, #fff);
+    text-stroke: 1px var(--shadow-color, #fff);
+    text-shadow: none;
+  }
+}
+
 .card__content {
   padding: 25px 25px 0;
 }
 
 .card__text {
-  font-variation-settings: 'wght' var(--card-text-fw, 400);
+  font-variation-settings: "wght" var(--card-text-fw, 400);
   font-size: 18px;
   line-height: 21px;
   color: var(--accent-color, #000);
@@ -308,11 +359,21 @@
   block-size: 21px;
   inline-size: 21px;
   transition: color 1s ease;
+  mix-blend-mode: difference;
 }
 
 @media (width <= 700px) {
   .card__image {
     block-size: 375px;
+  }
+
+  .card__image-watermark {
+    right: 11px;
+    top: 23px;
+  }
+
+  .dialog-button {
+    min-width: 257px;
   }
 }
 @media (width <= 375px) {
@@ -346,6 +407,7 @@
 .button-overlay .button__text {
   position: relative;
   z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .button-overlay:hover::after {
@@ -356,4 +418,92 @@
 .button-overlay:hover .save__floppy {
   color: var(--bg-color);
   transition: color 1s ease;
+}
+
+/*ФИЛЬТРЫ НА КАРТИНКИ*/
+
+.filter-brightness {
+  filter: brightness(150%);
+}
+
+.filter-contrast {
+  filter: contrast(70%);
+}
+
+.filter-blur {
+  filter: blur(0.2rem);
+}
+
+.filter-opacity {
+  filter: opacity(0.5);
+}
+
+.filter-grayscale {
+  filter: grayscale(0.7);
+}
+
+.filter-saturate {
+  filter: saturate(300%);
+}
+
+.filter-sepia {
+  filter: sepia(80%);
+}
+
+.filter-mix {
+  filter: sepia(1) contrast(1) brightness(130%);
+}
+
+.dialog {
+  border: 2px solid var(--accent-color, #000);
+}
+
+.dialog::backdrop {
+  background-color: #000;
+  opacity: 0.75;
+}
+
+.dialog-form {
+  inline-size: 375px;
+  min-block-size: 193px;
+  padding: 31.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: var(--bg-color, #fff);
+}
+
+.dialog-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.save__floppy-dialog {
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.dialog__text {
+  color: var(--accent-color, #000);
+  font-family: var(--accent-font), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.dialog-button {
+  border: 2px solid var(--accent-color, #000);
+  padding: 9px 17px;
+  min-inline-size: 293px;
+}
+
+.dialog-button:hover {
+  opacity: 0.6;
 }
