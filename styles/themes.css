@@ -14,7 +14,8 @@
       transparent 4px
     ),
     linear-gradient(to bottom, #007f0c 0.01%, #004306 100%);
-  --bg-color: #000;
+
+    --bg-color: #000;
   --accent-color: #00cc14;
   --font-weight-title: 785;
   --font-weight-text: 465;
