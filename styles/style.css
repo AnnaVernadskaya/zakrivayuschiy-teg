@@ -37,17 +37,17 @@
   margin-block-end: 100px;
   background-color: var(--bg-color, #fff);
   border: 2px solid var(--accent-color, #000);
-  max-width: 969px;
+  max-inline-size: 969px;
 }
 
 .header__logo {
   display: inline-block;
-  padding-top: clamp(
+  padding-block-start: clamp(
     120px,
     calc(120px + (136 - 120) * ((100vw - 375px) / (1440 - 375))),
     136px
   );
-  padding-bottom: 20px;
+  padding-block-end: 20px;
   font-family: var(--accent-font), Arial, Helvetica, sans-serif;
   font-size: clamp(
     49px,
@@ -59,12 +59,12 @@
   line-height: normal;
   text-transform: uppercase;
   color: var(--accent-color, #000);
-  padding-left: clamp(
+  padding-inline-start: clamp(
     14px,
     calc(14px + (120.5 - 14) * ((100vw - 375px) / (1440 - 375))),
     120.5px
   );
-  padding-right: clamp(
+  padding-inline-end: clamp(
     14px,
     calc(14px + (120.5 - 14) * ((100vw - 375px) / (1440 - 375))),
     120.5px
@@ -176,18 +176,19 @@
   font-size: 18px;
   color: var(--accent-color, #000);
 
-  padding-top: clamp(
+  padding-block-start: clamp(
     3px,
     calc(3px + (3.5 - 3) * ((100vw - 375px) / (1440 - 375))),
     3.5px
   );
-  padding-bottom: clamp(
+  padding-block-end: clamp(
     3px,
     calc(3px + (5.5 - 3) * ((100vw - 375px) / (1440 - 375))),
     5.5px
   );
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  border-block-end: 2px solid var(--accent-color, #000);
 }
 
 .image-container {
@@ -200,8 +201,6 @@
   block-size: 696px;
   object-fit: cover;
   object-position: center;
-  border-block-start: 2px solid var(--accent-color, #000);
-  border-block-end: 2px solid var(--accent-color, #000);
 }
 
 .card__image-watermark {
@@ -231,6 +230,7 @@
 
 .card__content {
   padding: 30px 25px 0;
+  border-block-start: 2px solid var(--accent-color, #000);
 }
 
 .card__text {
@@ -393,7 +393,7 @@
   }
 
   .dialog-button {
-    min-width: 257px;
+    min-inline-size: 257px;
   }
 }
 
