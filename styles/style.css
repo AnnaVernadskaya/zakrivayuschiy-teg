@@ -423,7 +423,6 @@
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
   z-index: 0;
-  mix-blend-mode: difference;
 }
 
 .button-overlay .button__text {
